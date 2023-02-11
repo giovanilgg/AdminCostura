@@ -1,0 +1,100 @@
+@import '../styles/globals.scss';
+
+
+.tabla{
+    width: 98%;
+    margin: 2rem auto 0 auto;
+    border-collapse: collapse;
+     &__head{
+        background-color: $tabla1;
+       
+       &__tr{
+       
+          
+           th{
+            color: white;
+            padding: 0rem .5rem;
+            border:  rgb(236, 190, 238) 1px solid ;
+        }
+    }
+    }
+    &__body{ 
+      
+        &__tr{
+           text-align: center;
+        td{ 
+             border: rgb(236, 190, 238) 1px solid !important;
+             color: rgb(0, 0, 0);
+             padding: 1rem .5rem;
+        }
+        &__btn{
+            display: flex;
+            flex-direction: column;
+            &__actualizar{
+                background-color: $actualizar;
+                border: none;
+                margin: .3rem 0;
+                padding: .5rem;
+                color: white;
+                border-radius: 2px;
+                font-size: 15px;
+            }
+           
+            &__eliminar{
+                background-color: $eliminar;
+                border: none;
+                margin: .3rem 0;
+                padding: .5rem;
+                color: white;
+                border-radius: 2px;
+                font-size: 15px;
+
+            }
+            &__finalizar{
+                background-color: $finalizar;
+                border: none;
+                margin: .3rem 0;
+                padding: .5rem;
+                color: white;
+                border-radius: 2px;
+                font-size: 15px;
+            }
+            &__entregar{
+                background-color: $entregar;
+                border: none;
+                margin: .3rem 0;
+                padding: .5rem;
+                color: white;
+                border-radius: 2px;
+                font-size: 15px;
+            }
+            &__entregar:hover{
+                cursor: pointer;
+                background-color: $entregarHover;
+                
+            }
+            &__actualizar:hover{
+                cursor: pointer;
+                background-color: $actualizarHover;
+                
+            }
+            &__eliminar:hover{
+                cursor: pointer;
+                background-color: $eliminarHover;
+            }
+            &__finalizar:hover{
+                cursor: pointer;
+                background-color: $finalizarHover;
+                
+            }
+
+        }
+
+    }
+ }
+
+&__oculto{
+    display: none;
+
+}
+}

@@ -1,0 +1,98 @@
+@import '../styles/globals.scss';
+
+.formularioCliente{
+
+   display: flex;
+   flex-direction: column;
+   border: solid 1px $hover;
+   padding: 2rem;
+   width: 65%;
+   margin: 2rem  auto 0 auto;
+   border-radius: 1rem;
+    &__advertencia{
+        color:red;
+    }
+    &__campo{
+        display: flex;
+        flex-direction: column;
+     
+      
+        input{
+            border: none;
+            border-bottom: 1px solid $hover;
+            margin:.5rem 0 1.2rem 0;
+            outline: none;
+            width:100%;
+          
+        }
+        select{
+            border: none;
+            border-bottom: 1px solid $hover;
+            margin:.5rem 0 1.2rem 0;
+            outline: none;
+            width:100%;
+        }
+        label{
+            font-weight: bold;
+            margin-top:.6rem;
+        }
+        textarea{
+            border: none;
+            border-bottom: 1px solid $hover;
+            margin:.5rem 0 1.2rem 0;
+            outline: none;
+            width:100%;
+        }
+    }
+   
+    &__tituloImagen{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        color: black;
+        font-size: 1rem;
+        color:$primario;
+        text-transform:uppercase;
+    }
+    &__unCampo{
+        
+    }
+    &__dosCampos{
+       @include grid(2,1rem);
+       @include tablet{
+        @include grid(1,0rem);
+       };
+
+    }
+    &__tresCampos{
+        @include grid(3,1rem);
+        @include tablet{
+         @include grid(1,0rem);
+        };
+        
+        
+
+    }
+    &__btn{
+        width: 50%;
+        margin: 1rem auto;
+        padding:.8rem;
+        border-radius: 1rem;
+        border: none;
+        background-color: $primario;
+        color: white;
+        font-size:1.2rem;
+        font-weight:400;
+        @include tablet{
+           width:100%;
+         };
+      
+    }
+    &__btn:hover{
+        background-color: $hover;
+        cursor: pointer;
+    }
+}
+
+

@@ -1,0 +1,160 @@
+@import '../styles/globals.scss';
+
+.menuCollapsed{
+    //encabezado titulo y menu hamburguesa
+    background-color: white;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 300px;
+    animation: width 2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include telefono{
+      width:100%;
+      z-index: 2;
+    }
+    
+    &__header{
+        background-color: white;
+        display: flex;
+        justify-content: space-around;
+
+      
+        &_titulo{
+            font-size: 1rem;
+          span{
+           color: $primario;
+          }
+
+        }
+        &_menu{
+            
+        }
+        &_menu:hover{
+            rect{fill: $hover;
+            cursor: pointer;
+            }
+        }
+    }
+    //Imagen de logoPrincipal
+    &__logoImagen{
+      
+       
+       display: flex;
+       justify-content: center;
+      img{
+        width: 110px;
+        height: 110px;}
+       
+       
+       
+    }
+    //links a las diferentes secciones 
+    &__linksSecciones{
+        
+
+        &_colorUno{
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          background-color: rgb(255, 255, 255);
+          padding: 1rem ;
+          text-decoration: none;
+          p{
+           
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: black;
+            overflow: hidden;
+            
+        
+          }
+
+        }
+        &_colorDos{
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          background-color: $primario;
+          padding: 1rem ;
+          p{
+            color: white;
+            font-size: 1rem;
+            text-transform: uppercase;
+            overflow: hidden;
+          
+          }
+        }
+        //colores de los btn
+        &_colorDos:hover{
+           transform: scale(1.1);
+        }
+        &_colorUno:hover{
+            transform: scale(1.1);
+          }
+    }
+}
+
+.contenidoPrincipal{
+
+    margin-left: 300px;
+    &__btnNuevo{
+      position: fixed;
+      bottom: 10px;
+      right: 10px; 
+      text-decoration: none;
+      text-align: center;
+      &_titulo{
+       
+        color:  black;
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-top: 2px;
+        }
+    }
+    &__btnCerrar{
+      position: fixed;
+      top: 10px;
+      right: 10px; 
+      text-align: center;
+      &_titulo{
+        color:  black;
+        text-transform: uppercase;
+        font-size: 12px;
+        margin-top: 2px;
+       }
+    }
+}
+
+//control del menu
+
+.menuActive{
+    
+    width: 50px;
+   
+}
+.tituloActive{
+    display: none;
+}
+.imagenActive{
+  img{
+   width: 90%;
+   height: auto;
+  }
+}
+.iconosActive{
+a{
+   padding: 1rem 4px;
+   img{
+    width: 85%;
+    height: auto;
+   }
+}
+}
+.contenidoPrincipalActive{
+   margin-left: 75px;
+}

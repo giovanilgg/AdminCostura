@@ -1,0 +1,57 @@
+@import '../styles/globals.scss';
+.grafica{
+    width: 100%;
+    margin-top: 1rem;
+    align-items: center;
+    @include grid(2,0rem);
+    @include tablet{
+    margin-top: 4rem;
+    @include grid(1,0rem);
+   }
+     &__circular{
+      width: 100%;
+      height: auto;
+    canvas{
+        width: 100% !important;
+        height: auto !important;
+       
+      }
+    }
+     &__filtros{
+        align-items: center;
+        justify-self: center; 
+        @include grid(1,0rem);
+        @include tablet{
+            margin-top: 2rem;}
+            &_elementos{
+                display: flex;
+                flex-direction: column;
+                label{
+                   font-size: 1.1rem;
+                   color:$hover;
+                   font-weight: bold;
+              
+                }
+                input{
+                    border: none;
+                    padding: 1rem;
+                    margin:.5rem 0 1.2rem 0;
+                    outline: none;
+                    background-color: $hover;
+                    color: rgb(255, 255, 255);
+                    width:100%;
+                    border-radius: 5px;
+                }
+                input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator{
+                    cursor: pointer;
+                    border-radius: 4px;
+                    margin-right: 2px;
+                    opacity: 0.9;
+                    filter: invert(0.9);
+                   
+                }
+            }
+        
+       
+     }
+}
