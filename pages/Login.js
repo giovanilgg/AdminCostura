@@ -72,7 +72,7 @@ const Login = () => {
           <input
             type="submit"
             className={[styles.formularioLogin__btn, lato.className].join(" ")}
-            value={"Enviando"}
+            value={"Ingresar"}
           />
         </div>
       </form>

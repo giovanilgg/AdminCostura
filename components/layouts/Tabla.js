@@ -4,7 +4,7 @@ import { FirebaseContext } from "../../firebase";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Router, { useRouter } from "next/router";
-import { formatearFecha,fechaActual } from "../../helpers/fecha";
+import { formatearFecha, fechaActual } from "../../helpers/fecha";
 
 const MiSwal = withReactContent(Swal);
 
@@ -28,13 +28,13 @@ const Tabla = ({ clientes, guardarClientes, urlRecarga }) => {
       }
     } else if (status === "terminado") {
       await firebase.actualizarCliente(id, { estatus: "entregado" });
-       const fechaC= fechaActual()
-      await firebase.actualizarCliente(id, { fechaConteo: fechaC});
-      console.log(docClientes)
+      const fechaC = fechaActual();
+      await firebase.actualizarCliente(id, { fechaConteo: fechaC });
+      console.log(docClientes);
       docClientes = await firebase.getClientesT();
     } else if (status === "entregado") {
-     docClientes = await firebase.getClientesE();
-     }
+      docClientes = await firebase.getClientesE();
+    }
 
     guardarClientes(docClientes);
   };
@@ -78,8 +78,7 @@ const Tabla = ({ clientes, guardarClientes, urlRecarga }) => {
 
   return (
     <table className={styles.tabla}>
-     
-      <thead  className={styles.tabla__head}>
+      <thead className={styles.tabla__head}>
         <tr className={styles.tabla__head__tr}>
           <th>Nombre</th>
           <th>Telefono</th>
@@ -91,23 +90,29 @@ const Tabla = ({ clientes, guardarClientes, urlRecarga }) => {
           <th>Estatus</th>
           <th>Fecha Entrega</th>
           <th>Cliente recibio su prenda el</th>
-         <th>Acciones</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody className={styles.tabla__body}>
         {clientes &&
           clientes.map((clie) => (
             <tr className={styles.tabla__body__tr} key={clie.id}>
-              <td>{clie.nombreCliente}</td>
-              <td>{clie.telefonoCliente}</td>
-              <td>{formatearFecha(clie.fechaRCliente)}</td>
-              <td>{clie.asignadoA}</td>
-              <td>{clie.descripcion}</td>
-              <td>${clie.precioTotal}</td>
-              <td>${clie.aCuenta}</td>
-              <td>{clie.estatus}</td>
-              <td>{formatearFecha(clie.fechaECliente)}</td>
-              <td>{formatearFecha(clie.fechaConteo)}</td>
+              <td data-label="Nombre">{clie.nombreCliente}</td>
+              <td data-label="Telefono">{clie.telefonoCliente}</td>
+              <td data-label="FechaRegistro">
+                {formatearFecha(clie.fechaRCliente)}
+              </td>
+              <td data-label="Asignado">{clie.asignadoA}</td>
+              <td data-label="Descripcion">{clie.descripcion}</td>
+              <td data-label="PrecioTotal">${clie.precioTotal}</td>
+              <td data-label="A cuenta">${clie.aCuenta}</td>
+              <td data-label="Estatus">{clie.estatus}</td>
+              <td data-label="Fecha Entrega">
+                {formatearFecha(clie.fechaECliente)}
+              </td>
+              <td data-label="Cliente recibio su prenda el">
+                {formatearFecha(clie.fechaConteo)}
+              </td>
               <td className={styles.tabla__body__tr__btn}>
                 <button
                   onClick={() => actualizarCliente(clie.id)}
