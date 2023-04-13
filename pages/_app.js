@@ -7,10 +7,19 @@ function MyApp({ Component, pageProps }) {
   const usuario = useAutenticacion();
   //state global para la tabla
   const [clientes, guardarClientes] = useState([]);
+  //state global para precios
+  const [precios, guardarPrecios] = useState([]);
 
   return (
     <FirebaseContext.Provider
-      value={{ firebase, usuario, clientes, guardarClientes }}
+      value={{
+        firebase,
+        usuario,
+        clientes,
+        guardarClientes,
+        precios,
+        guardarPrecios,
+      }}
     >
       <Component {...pageProps} />
     </FirebaseContext.Provider>

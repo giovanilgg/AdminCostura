@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import styles from "../../styles/Tabla.module.scss";
-import { FirebaseContext } from "../../firebase";
+import styles from "../styles/Tabla.module.scss";
+import { FirebaseContext } from "../firebase";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Router, { useRouter } from "next/router";
-import { formatearFecha, fechaActual } from "../../helpers/fecha";
+import { formatearFecha, fechaActual } from "../helpers/fecha";
 
 const MiSwal = withReactContent(Swal);
 
@@ -30,7 +30,6 @@ const Tabla = ({ clientes, guardarClientes, urlRecarga }) => {
       await firebase.actualizarCliente(id, { estatus: "entregado" });
       const fechaC = fechaActual();
       await firebase.actualizarCliente(id, { fechaConteo: fechaC });
-      console.log(docClientes);
       docClientes = await firebase.getClientesT();
     } else if (status === "entregado") {
       docClientes = await firebase.getClientesE();
@@ -89,7 +88,7 @@ const Tabla = ({ clientes, guardarClientes, urlRecarga }) => {
           <th>A cuenta</th>
           <th>Estatus</th>
           <th>Fecha Entrega</th>
-          <th>Cliente recibio su prenda el</th>
+          <th>Recibio su prenda el</th>
           <th>Acciones</th>
         </tr>
       </thead>

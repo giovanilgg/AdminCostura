@@ -20,12 +20,12 @@ const Layout = (props) => {
   const { usuario, firebase } = useContext(FirebaseContext);
   const { width } = useTamPantalla();
 
-  /* useEffect(() => {
-    if (!usuario) {
+  useEffect(() => {
+    /*if (!usuario) {
       Router.push("/Login");
     }
-    return () => usuario;
-  }, [usuario]);*/
+    return () => usuario;*/
+  }, [usuario]);
 
   //menu desplegable
   const [menuActivo, setMenuActivo] = useState(false);
@@ -82,7 +82,11 @@ const Layout = (props) => {
             width < 768 && menuActivo == false && styled.imagenActive,
           ].join(" ")}
         >
-          <Image src={imagenPrincipal} alt="Imagen principal de costura" />
+          <Image
+            src={imagenPrincipal}
+            alt="Imagen principal de costura"
+            priority={true}
+          />
         </div>
         <nav
           className={[
@@ -98,8 +102,8 @@ const Layout = (props) => {
           >
             <Image
               src={imagenCosturasPendientes}
-              width={40}
-              height={40}
+              width={30}
+              height={30}
               alt="Imagen costuras pendientes"
             />
             <p className={lato.className}>Costuras Pendientes</p>
@@ -110,8 +114,8 @@ const Layout = (props) => {
           >
             <Image
               src={imagenCosturasSinEntregar}
-              width={40}
-              height={40}
+              width={30}
+              height={30}
               alt="Imagen costuras sin entregar"
             />
             <p className={lato.className}>Costuras sin entregar</p>
@@ -122,9 +126,10 @@ const Layout = (props) => {
           >
             <Image
               src={imagenClientes}
-              width={40}
-              height={40}
+              width={30}
+              height={30}
               alt="Imagen clientes"
+              style={{ width: "auto" }}
             />
             <p className={lato.className}>CLientes</p>
           </Link>
@@ -134,8 +139,8 @@ const Layout = (props) => {
           >
             <Image
               src={imagenPrecios}
-              width={40}
-              height={40}
+              width={30}
+              height={30}
               alt="Imagen Precios"
             />
             <p className={lato.className}>Precios</p>
@@ -146,8 +151,8 @@ const Layout = (props) => {
           >
             <Image
               src={imagenEstadisticas}
-              width={40}
-              height={40}
+              width={30}
+              height={30}
               alt="Imagen estadisticas"
             />
             <p className={lato.className}>Estadisticas</p>
@@ -167,8 +172,8 @@ const Layout = (props) => {
           <div className={styled.contenidoPrincipal__btnCerrar}>
             <Image
               src={imagenCerrarSesion}
-              width={40}
-              height={40}
+              width={30}
+              height={30}
               alt="Imagen cerrar sesion"
               onClick={() => firebase.cerrarSesion()}
             ></Image>
@@ -183,8 +188,8 @@ const Layout = (props) => {
           >
             <Image
               src={imagenNuevo}
-              width={40}
-              height={40}
+              width={30}
+              height={30}
               alt="Imagen agregar nuevo cliente"
             ></Image>
             <p className={styled.contenidoPrincipal__btnNuevo_titulo}>

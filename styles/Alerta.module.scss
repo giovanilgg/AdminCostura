@@ -1,0 +1,22 @@
+.alerta{
+    border-radius: 3px;
+    color: white;
+    padding: .5rem;
+    z-index: 4;
+    text-transform: uppercase;
+    text-align: center;
+    margin:.3rem;
+    p{
+        margin: 0;
+        font-size: .7rem;
+    }
+}
+.insertar{
+ background-color: rgb(44, 229, 31);
+}
+.actualizar{
+    background-color: rgb(86, 183, 252);
+}
+.error{
+    background-color: rgb(243, 85, 85);
+}

@@ -32,6 +32,8 @@ const FormCliente = () => {
           nombreCliente,
           precioTotal,
           telefonoCliente,
+          fechaConteo,
+          estatus,
         } = datos;
         formik.resetForm();
         formik.resetForm({
@@ -44,12 +46,13 @@ const FormCliente = () => {
             aCuenta: aCuenta,
             asignadoA: asignadoA,
             descripcion: descripcion,
+            fechaConteo: fechaConteo,
+            estatus: estatus,
           },
         });
       };
-    
-      obtenerCliente(id); 
-      
+
+      obtenerCliente(id);
     }
   }, []);
 
@@ -69,6 +72,8 @@ const FormCliente = () => {
       nombreCliente,
       precioTotal,
       telefonoCliente,
+      estatus,
+      fechaConteo,
     } = valores;
     const clienteNuevo = new Cliente(
       nombreCliente,
@@ -79,10 +84,10 @@ const FormCliente = () => {
       aCuenta,
       asignadoA,
       descripcion,
-      "pendiente",
-      ""
+      estatus,
+      fechaConteo
     );
-    console.log(clienteNuevo)
+
     const clienteActualizar = {
       nombreCliente,
       telefonoCliente,
@@ -92,6 +97,8 @@ const FormCliente = () => {
       aCuenta,
       asignadoA,
       descripcion,
+      estatus,
+      fechaConteo,
     };
     try {
       if (id != "nuevo") {
@@ -101,9 +108,7 @@ const FormCliente = () => {
       }
       await firebase.postCliente(clienteNuevo);
       router.push("/");
-    } catch (error) {
-      console.log("Existe un error", error);
-    }
+    } catch (error) {}
   };
   //validaciones formulario
   const handleValidaciones = (values) => {
@@ -135,6 +140,8 @@ const FormCliente = () => {
       aCuenta: 0,
       asignadoA: "noAsignado",
       descripcion: "",
+      estatus: "pendiente",
+      fechaConteo: "",
     },
     onSubmit: (values) => {
       handleSubmitCliente(values);
@@ -144,7 +151,6 @@ const FormCliente = () => {
       return handleValidaciones(values);
     },
   });
-  console.log(formik.initialValues)
 
   return (
     <Layout>
@@ -266,21 +272,55 @@ const FormCliente = () => {
               Asignado a{" "}
             </label>
             <select
-              type="number"
               id="asignadoA"
-              name="asignadoA" 
-              value={ formik.values.asignadoA}
+              name="asignadoA"
+              value={formik.values.asignadoA}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-           
             >
               <option value="noAsignado">Sin asignar</option>
               <option value="Silvia">Silvia Garcia Merino</option>
               <option value="Abigail">Abigail Garcia Merino</option>
-             
             </select>
           </div>
         </div>
+
+        <div className={styles.formularioCliente__dosCampos}>
+          <div className={styles.formularioCliente__campo}>
+            <label htmlFor="fechaRCliente" className={advenPro.className}>
+              Fecha que se entrego al cliente:*
+            </label>
+            <input
+              type="date"
+              id="fechaConteo"
+              name="fechaConteo"
+              value={formik.values.fechaConteo}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </div>
+
+          <div className={styles.formularioCliente__campo}>
+            <label htmlFor="estatus" className={advenPro.className}>
+              Estatus{" "}
+            </label>
+            <select
+              type="number"
+              id="estatus"
+              name="estatus"
+              value={formik.values.estatus}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            >
+              <option selected value="pendiente">
+                Pendiente
+              </option>
+              <option value="terminado">Terminado</option>
+              <option value="entregado">Entregado</option>
+            </select>
+          </div>
+        </div>
+
         <div
           className={[
             styles.formularioCliente__campo,

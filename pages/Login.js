@@ -17,9 +17,7 @@ const Login = () => {
       e.preventDefault();
       await firebase.iniciarSesion(email, password);
       Router.push("/");
-    } catch (error) {
-      console.error("Hubo un error al logear el usuario", error);
-    }
+    } catch (error) {}
   }
   return (
     <div className={styles.containerLogin}>

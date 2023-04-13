@@ -3,7 +3,7 @@
 
 .tabla{
     width: 98%;
-    margin: 2rem auto 0 auto;
+    margin: 1rem auto 0 auto;
     border-collapse: collapse;
      &__head{
        background-color: $tabla1;
@@ -26,7 +26,7 @@
         td{ 
              border: rgb(236, 190, 238) 1px solid !important;
              color: rgb(0, 0, 0);
-             padding: 1rem .5rem;
+             padding: .2rem .5rem;
 
              @include tablet{
                 display: block;

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Layout from "../components/layouts/Layout";
-import Tabla from "../components/layouts/Tabla";
+import Tabla from "../components/Tabla";
 import { FirebaseContext } from "../firebase";
 
 const CosturasPendientesFinalizadas = () => {

@@ -10,7 +10,7 @@ const formatearFecha = (fecha) => {
   fechaNueva.setMinutes(
     fechaNueva.getMinutes() + fechaNueva.getTimezoneOffset()
   );
-  console.log(fechaNueva);
+
   return fechaNueva.toLocaleDateString("es-ES", opciones);
 };
 const formatearFechaFormatoTitulo = (fecha) => {
@@ -24,7 +24,7 @@ const formatearFechaFormatoTitulo = (fecha) => {
   fechaNueva.setMinutes(
     fechaNueva.getMinutes() + fechaNueva.getTimezoneOffset()
   );
-  console.log(fechaNueva);
+
   return fechaNueva.toLocaleDateString("es-ES", opciones);
 };
 

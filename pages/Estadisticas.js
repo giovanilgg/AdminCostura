@@ -3,7 +3,7 @@ import Layout from "../components/layouts/Layout";
 //stylos
 import styled from "../styles/Estadisticas.module.scss";
 //Componetes de chart.js
-import Grafica from "../components/layouts/Grafica";
+import Grafica from "../components/Grafica";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
 //Firebase
 import { FirebaseContext } from "../firebase";
@@ -36,7 +36,7 @@ const Estadisticas = () => {
       },
     },
   };
-  console.log(fechaF, fechaI);
+
   const [data, setData] = useState({
     labels: [],
     datasets: [
@@ -59,17 +59,14 @@ const Estadisticas = () => {
     getClientesTerminado();
   }, []);
   useEffect(() => {
-    console.log("se jeuto el effce");
-    console.log(datosClientesTerminados);
     rellenarDatosGrafica(datosClientesTerminados, fechaInicial, fechaFinal);
   }, [fechaInicial, fechaFinal, datosClientesTerminados]);
 
   const rellenarDatosGrafica = (datos, fechaI, fechaF) => {
-    console.log(datos, fechaF, fechaI);
     const silvia = datos.reduce((acum, cliente) => {
       if (
         cliente.asignadoA == "Silvia" &&
-        cliente.fechaConteo>= fechaI &&
+        cliente.fechaConteo >= fechaI &&
         cliente.fechaConteo <= fechaF
       ) {
         acum += cliente.precioTotal;

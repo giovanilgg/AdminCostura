@@ -1,0 +1,98 @@
+@import "../styles/globals.scss";
+
+.contenedorTab{
+ 
+    width: 90%;
+    margin-top: 1rem;
+   //Seccion del tab
+    .menuTab{
+       width: 100%;
+       font-size: 1.1rem;
+       @include grid(6,1);
+       @include tablet(){
+        @include grid(3,1);
+       }
+
+       &__btn{
+        padding: .6rem;
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 1rem;
+        margin: .5rem;
+        background-color: rgb(226, 136, 212);
+       
+       }
+       &__btn:hover{
+        cursor: pointer;
+       }
+       &__btn:focus{
+       }
+       
+       
+    
+    }
+    //Seccion del contenido
+    .contenidoTab{
+       
+        &__contenido{
+            
+            &__titulo{
+                margin-bottom: 1rem;
+                text-transform: uppercase;
+                color: $primario;
+                text-align: center;
+                font-size: 1.2rem;
+
+            }
+            &__lista{
+                @include grid(3,1);
+                
+                justify-items: center;
+                border-bottom:.2rem dotted rgba(210, 155, 199, 0.709);
+                margin-bottom: 3px;
+                
+                &__info{
+                    span{
+                       font-weight: bold;  
+                    }
+                }
+                &__btnBorrar{
+                    background-color: $eliminar;
+                    border: none;
+                    margin: .3rem .1rem;
+                    padding: .5rem;
+                    color: white;
+                    border-radius: 2px;
+                    font-size: 15px;
+                }
+                &__btnActualizar{
+                    background-color: $actualizar;
+                    border: none;
+                    margin: .3rem .1rem;
+                    padding: .5rem;
+                    color: white;
+                    border-radius: 2px;
+                    font-size: 15px;
+
+                }
+                &__btnBorrar:hover{
+                  background-color: $eliminarHover;
+                  cursor: pointer;
+                }
+                &__btnActualizar:hover{
+                    background-color: $actualizarHover;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+
+}
+
+.btnHover{
+   transform: scale(1.1);
+   border-radius: .5rem !important;
+   background: linear-gradient(to bottom right, rgb(158, 54, 165), rgb(228, 123, 207)) !important;
+   transition: transform .5s ;
+}

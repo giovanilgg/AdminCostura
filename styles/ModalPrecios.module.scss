@@ -1,0 +1,86 @@
+@import "../styles/globals.scss";
+
+.modalPrecio{
+   position: absolute;
+   right: 0;
+   right: 0;
+   bottom: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 3;
+   background-color: rgba(0, 0, 0, 0.952);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+    &__contenedor{
+     position: relative;
+      &__btnCerrar{
+        z-index: 4;
+        position: absolute;
+        color: white;
+        bottom: 340px;
+        left: 238px;
+      }
+      &__btnCerrar:hover{
+        cursor: pointer;
+      }
+    }
+   
+   &__Formulario{
+    position: relative;
+    z-index: 4;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: 6px;
+    legend{
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        color: black;
+        span{
+           font-weight: bold; 
+           color: $hover; 
+        }
+    }
+    &__Campo{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+        label{
+            color: $primario;
+            margin-bottom: .7rem;
+        }
+        input{
+          background-color:rgb(255, 255, 255) ;
+          border: none;
+          outline: none;
+          border-bottom:2px solid $primario;
+        }
+        select{
+          border: none;
+          outline: none;
+          border-bottom:2px solid $primario;
+        }
+
+    }
+    &__btn{
+        border-radius: .5rem;
+        border: none;
+        padding: .5rem;
+        background-color: $primario;
+        color: white;
+        text-transform: uppercase;
+    }
+    &__btn:hover{
+        cursor: pointer;
+        background-color: $hover;
+    }
+   }
+}
+//alertas
+.modalPrecioAlerta{
+ color: rgb(226, 71, 71);
+}
